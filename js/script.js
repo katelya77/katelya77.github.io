@@ -1,6 +1,6 @@
 var gc = new GameCanvas();
 
-var points = textToPoints("王奕香新年快乐！", 20, "Anton");
+var points = textToPoints("王奕香新年快乐", 20, "Anton");
 
 
 var titleParticles = [];
@@ -89,6 +89,7 @@ function TitleParticle(x, y, vx, vy) {
   }
 }
 
+
 function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.x = x;
   this.y = y;
@@ -97,16 +98,17 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.radius = radius;
   this.title = title;
   this.color = color;
-
+ 
   this.update = function () {
     this.x += this.vx;
     this.y += this.vy;
     this.vy += gravity;
-
+ 
     if (this.vy >= 0) {
       fireworks.splice(fireworks.indexOf(this), 1);
-
+ 
       if (this.title) {
+        titleParticles = [];
         var scale = 0.3;
         for (var i = 0; i < points.length; i++) {
           var p = points[i];
@@ -129,11 +131,11 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
       }
     }
   }
-
+ 
   this.render = function () {
     circle(this.x, this.y, this.radius, this.color);
   }
-}
+
 
 function Particle(x, y, vx, vy, radius, color) {
   this.x = x;
@@ -179,6 +181,10 @@ function textToPoints(text, textSize, font) {
   var points = [];
   var index = (x, y) => (x + canvas.width * y) * 4;
   var threshold = 50;
+
+  for (var i = 0; i < points.length; i++) {
+  points[i].x -= 20;
+}
 
   for (var i = 0; i < data.length; i += 4) {
     if (data[i + 3] > threshold) {
