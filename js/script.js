@@ -182,6 +182,10 @@ function textToPoints(text, textSize, font) {
   var index = (x, y) => (x + canvas.width * y) * 4;
   var threshold = 50;
 
+  for (var i = 0; i < points.length; i++) {
+  points[i].x -= 20;
+}
+
   for (var i = 0; i < data.length; i += 4) {
     if (data[i + 3] > threshold) {
       var p = {
