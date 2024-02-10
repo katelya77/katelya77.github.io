@@ -1,6 +1,6 @@
 var gc = new GameCanvas();
 
-var points = textToPoints("王奕香新年快乐！", 20, "Anton");
+var points = textToPoints("王奕香新年快乐", 20, "Anton");
 
 
 var titleParticles = [];
@@ -89,6 +89,7 @@ function TitleParticle(x, y, vx, vy) {
   }
 }
 
+
 function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.x = x;
   this.y = y;
@@ -107,7 +108,6 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
       fireworks.splice(fireworks.indexOf(this), 1);
  
       if (this.title) {
-        //清空标题粒子数组
         titleParticles = [];
         var scale = 0.3;
         for (var i = 0; i < points.length; i++) {
@@ -135,6 +135,8 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.render = function () {
     circle(this.x, this.y, this.radius, this.color);
   }
+
+
 function Particle(x, y, vx, vy, radius, color) {
   this.x = x;
   this.y = y;
