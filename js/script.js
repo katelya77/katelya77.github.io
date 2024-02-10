@@ -108,6 +108,7 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
       fireworks.splice(fireworks.indexOf(this), 1);
  
       if (this.title) {
+        //清空标题粒子数组
         titleParticles = [];
         var scale = 0.3;
         for (var i = 0; i < points.length; i++) {
