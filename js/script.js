@@ -89,7 +89,6 @@ function TitleParticle(x, y, vx, vy) {
   }
 }
 
-
 function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.x = x;
   this.y = y;
@@ -136,8 +135,6 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   }
 }
 
-
-
 function Particle(x, y, vx, vy, radius, color) {
   this.x = x;
   this.y = y;
@@ -182,10 +179,6 @@ function textToPoints(text, textSize, font) {
   var points = [];
   var index = (x, y) => (x + canvas.width * y) * 4;
   var threshold = 50;
-
-  for (var i = 0; i < points.length; i++) {
-  points[i].x -= 20;
-}
 
   for (var i = 0; i < data.length; i += 4) {
     if (data[i + 3] > threshold) {
