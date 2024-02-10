@@ -97,16 +97,18 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
   this.radius = radius;
   this.title = title;
   this.color = color;
-
+ 
   this.update = function () {
     this.x += this.vx;
     this.y += this.vy;
     this.vy += gravity;
-
+ 
     if (this.vy >= 0) {
       fireworks.splice(fireworks.indexOf(this), 1);
-
+ 
       if (this.title) {
+        //清空标题粒子数组
+        titleParticles = [];
         var scale = 0.3;
         for (var i = 0; i < points.length; i++) {
           var p = points[i];
@@ -129,12 +131,10 @@ function Firework(x, y, vx, vy, radius = 5, color = "white", title = false) {
       }
     }
   }
-
+ 
   this.render = function () {
     circle(this.x, this.y, this.radius, this.color);
   }
-}
-
 function Particle(x, y, vx, vy, radius, color) {
   this.x = x;
   this.y = y;
